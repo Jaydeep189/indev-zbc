@@ -43,13 +43,13 @@
         <Field
           class="form-control form-control-lg form-control-solid"
           type="text"
-          name="email"
+          name="Username"
           autocomplete="off"
         />
         <!--end::Input-->
         <div class="fv-plugins-message-container">
           <div class="fv-help-block">
-            <ErrorMessage name="email" />
+            <ErrorMessage name="Username" />
           </div>
         </div>
       </div>
@@ -167,9 +167,9 @@ import { ErrorMessage, Field, Form } from "vee-validate";
 import { Actions } from "@/store/enums/StoreEnums";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-import Swal from "sweetalert2/dist/sweetalert2.min.js";
+//import Swal from "sweetalert2/dist/sweetalert2.min.js";
 import * as Yup from "yup";
-
+import axios from "axios"
 export default defineComponent({
   name: "sign-in",
   components: {
@@ -179,19 +179,27 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
-    const router = useRouter();
+  //  const router = useRouter();
 
     const submitButton = ref<HTMLElement | null>(null);
 
     //Create form validation object
-    const login = Yup.object().shape({
-      email: Yup.string().email().required().label("Email"),
-      password: Yup.string().min(4).required().label("Password"),
-    });
-
+    const login = {
+      username: '',
+      password: ''
+    }
+    const URL = 'https://indev-zbc-grapql.herokuapp.com/authgraphql';
+    const query = `mutation{
+  tokenAuth("test1", "jaydeep300") {
+    token
+    success
+    errors
+  }
+}`
     //Form submit function
     const onSubmitLogin = (values) => {
       // Clear existing errors
+      console.log(values)
       store.dispatch(Actions.LOGOUT);
 
       if (submitButton.value) {
@@ -201,34 +209,50 @@ export default defineComponent({
 
       // Dummy delay
       setTimeout(() => {
-        // Send login request
-        store
-          .dispatch(Actions.LOGIN, values)
-          .then(() => {
-            Swal.fire({
-              text: "All is cool! Now you submit this form",
-              icon: "success",
-              buttonsStyling: false,
-              confirmButtonText: "Ok, got it!",
-              customClass: {
-                confirmButton: "btn fw-bold btn-light-primary",
-              },
-            }).then(function () {
-              // Go to page after successfully login
-              router.push({ name: "dashboard" });
-            });
-          })
-          .catch(() => {
-            Swal.fire({
-              text: store.getters.getErrors[0],
-              icon: "error",
-              buttonsStyling: false,
-              confirmButtonText: "Try again!",
-              customClass: {
-                confirmButton: "btn fw-bold btn-light-danger",
-              },
-            });
-          });
+      const data = axios({
+  url: "https://indev-zbc-grapql.herokuapp.com/authgraphql",
+  method: 'post',
+  data: {
+    query: `mutation{
+  tokenAuth("test1", "jaydeep300") {
+    token
+    success
+    errors
+  }
+}`
+  }
+}).then((result) => {
+  console.log(result.data)
+});
+ console.log(data)
+       // // Send login request
+       // store
+       //   .dispatch(Actions.LOGIN, values)
+       //   .then(() => {
+       //     Swal.fire({
+       //       text: "All is cool! Now you submit this form",
+       //       icon: "success",
+       //       buttonsStyling: false,
+       //       confirmButtonText: "Ok, got it!",
+       //       customClass: {
+       //         confirmButton: "btn fw-bold btn-light-primary",
+       //       },
+       //     }).then(function () {
+       //       // Go to page after successfully login
+       //       router.push({ name: "dashboard" });
+       //     });
+       //   })
+       //   .catch(() => {
+       //     Swal.fire({
+       //       text: store.getters.getErrors[0],
+       //       icon: "error",
+       //       buttonsStyling: false,
+       //       confirmButtonText: "Try again!",
+       //       customClass: {
+       //         confirmButton: "btn fw-bold btn-light-danger",
+       //       },
+       //     });
+       //   });
 
         //Deactivate indicator
         submitButton.value?.removeAttribute("data-kt-indicator");

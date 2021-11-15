@@ -1,6 +1,6 @@
 <template>
     <!--begin::Mixed Widget 9-->
-    <div :class="widgetClasses" class="card">
+    <div :class="widgetClasses">
         <!--begin::Body-->
        <div class="row">
     <div class="col-lg-7 mb-lg-0 mb-4">
@@ -31,9 +31,9 @@
       </div>
     </div>
     <div class="col-lg-5">
-      <div class="card h-100">
-        <div class="overflow-hidden position-relative border-radius-xl bg-cover h-100"
-          style="background-image: url('media/svg/avatars/learning.png ');">
+      <div class="card h-100" >
+        <div class="mask bg-gradient-dark overflow-hidden position-relative border-radius-xl bg-cover h-100"
+          style="background-image: url('media/svg/avatars/learning.png '); border-radius: 10px; ">
           <span class="mask bg-gradient-dark"></span>
           <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
             <h5 class="text-white font-weight-bolder mb-4 pt-2">Go On our Youtube Channel</h5>
@@ -60,13 +60,13 @@
                 <a class="text-grey text-sm font-weight-bold mb-0 icon-move-right mt-auto"
                   href="https://wa.me/+918200466132" target="_blank">
                   Connect Now
-                  <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                 </a>
+                  <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
               </div>
             </div>
             <div class="col-5 text-end my-auto">
-              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="fa fa-whatsapp text-lg opacity-10" aria-hidden="true"></i>
+              <div class="icon icon-shape text-center border-radius-md">
+                <i class="fab fa-whatsapp fa-3x" style="color:green"></i>
               </div>
             </div>
           </div>
@@ -89,8 +89,8 @@
               </div>
             </div>
             <div class="col-5 text-end my-auto">
-              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="fa fa-instagram text-lg opacity-10" aria-hidden="true"></i>
+              <div class="icon icon-shape text-center border-radius-md">
+                <i class="fab fa-instagram fa-3x" style="color:#8a3ab9;"></i>
               </div>
             </div>
           </div>
@@ -113,8 +113,8 @@
               </div>
             </div>
             <div class="col-5 text-end my-auto">
-              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="fa fa-envelope text-lg opacity-10" aria-hidden="true"></i>
+              <div class="icon icon-shape text-center border-radius-md">
+                <i class="fa fa-envelope fa-3x" style="color:#f1d592;"></i>
               </div>
             </div>
           </div>

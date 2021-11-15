@@ -40,7 +40,7 @@
       <!--end::Description-->
 
       <!--begin::Info-->
-      <div class="d-flex flex-wrap mb-5">
+      <div class="d-flex flex-wrap mb-5 justify-content-center">
         <!--begin::Due-->
         <div
           class="
@@ -56,6 +56,21 @@
           <div class="fs-6 text-gray-800 fw-bolder">{{ getDate }}</div>
           <div class="fw-bold text-gray-400">Purchase Date</div>
         </div>
+          <div
+          class="
+            border border-gray-300 border-dashed
+            rounded
+            min-w-125px
+            me-7
+            py-3
+            px-4
+            mb-3
+          "
+        >
+          <div class="fs-6 text-gray-800 fw-bolder">{{ getBudget }}</div>
+          <div class="fw-bold text-gray-400">Plan</div>
+        </div>
+        
         <div
           class="
             border border-gray-300 border-dashed
@@ -73,25 +88,23 @@
         <!--end::Due-->
 
         <!--begin::Budget-->
-        <div
-          class="
-            border border-gray-300 border-dashed
-            rounded
-            min-w-125px
-            py-3
-            px-4
-            mb-3
-          "
-        >
-          <div class="fs-6 text-gray-800 fw-bolder">{{ getBudget }}</div>
-          <div class="fw-bold text-gray-400">Plan</div>
-        </div>
         <!--end::Budget-->
       </div>
       <!--end::Info-->
 
       <!--begin::Progress-->
       <!--end::Progress-->
+     <div class="text-center"> 
+       <router-link
+        to="/account/settings"
+        class="btn btn-primary min-w-125px
+            py-3
+            px-4
+            me-7
+            mb-3 align-self-center"
+        >Edit Request</router-link
+      >
+     </div>
     </div>
     <!--end:: Card body-->
   </a>

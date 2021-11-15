@@ -7,21 +7,6 @@
     </div>
   </div>
 
-  <div class="row gy-5 gx-xl-8">
-    <div class="col-xxl-4">
-      <router-link to="/pricing"> Pricing </router-link>
-      <router-link to="/request"> Request </router-link>
-      <router-link to="/support"> Support </router-link>
-      <router-link to="/billing"> Billing </router-link>
-      <router-link to="/profile-main"> Profile </router-link>
-
-
-    </div>
-    <div class="col-xxl-8">
-
-    </div>
-  </div>
-
   <div class="row gy-5 g-xl-8">
     <div class="col-xxl-4">
     </div>

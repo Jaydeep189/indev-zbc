@@ -1,12 +1,48 @@
 <template>
   <!--begin::Dashboard-->
+  <br>
   <div class="row gy-5 g-xl-8">
-
+        <h2 style="padding-left:20px"> Website Plans </h2>
     </div>
-
+  <br>
   <div class="row gy-5 gx-xl-8">
-     <h2> Website Plans </h2>
      <div class="col-md-6 col-xl-4">  
+      <KTCard
+        status="Overdue"
+        :progress="10"
+        status-data-badge-color="badge-light-danger"
+        icon="media/svg/brand-logos/treva.svg"
+        title="Aviasales App"
+        date="May 10, 2021"
+        budget="$36,400.00"
+        :users="users8"
+      ></KTCard>
+    </div>
+     <div class="col-md-6 col-xl-4">  
+      <KTCard
+        status="Overdue"
+        :progress="10"
+        status-data-badge-color="badge-light-danger"
+        icon="media/svg/brand-logos/treva.svg"
+        title="Aviasales App"
+        date="May 10, 2021"
+        budget="$36,400.00"
+        :users="users8"
+      ></KTCard>
+    </div>
+      <div class="col-md-6 col-xl-4">  
+      <KTCard
+        status="Overdue"
+        :progress="10"
+        status-data-badge-color="badge-light-danger"
+        icon="media/svg/brand-logos/treva.svg"
+        title="Aviasales App"
+        date="May 10, 2021"
+        budget="$36,400.00"
+        :users="users8"
+      ></KTCard>
+    </div>
+      <div class="col-md-6 col-xl-4">  
       <KTCard
         status="Overdue"
         :progress="10"
@@ -19,8 +55,14 @@
       ></KTCard>
     </div>
     <div class="col-xxl-8">
-      
-     <h2> Module Plans </h2>
+    </div>
+  </div>
+<br>
+  <div class="row gy-5 gx-xl-8">
+     <div class="row gy-5 g-xl-8">
+        <h2 style="padding-left:20px"> Module Plans </h2>
+    </div>
+    <br>
      <div class="col-md-6 col-xl-4">  
       <KTCard
         status="Overdue"
@@ -32,6 +74,45 @@
         budget="$36,400.00"
         :users="users8"
       ></KTCard>
+    </div>
+    <div class="col-md-6 col-xl-4">  
+      <KTCard
+        status="Overdue"
+        :progress="10"
+        status-data-badge-color="badge-light-danger"
+        icon="media/svg/brand-logos/treva.svg"
+        title="Aviasales App"
+        date="May 10, 2021"
+        budget="$36,400.00"
+        :users="users8"
+      ></KTCard>
+    </div>
+    <div class="col-md-6 col-xl-4">  
+      <KTCard
+        status="Overdue"
+        :progress="10"
+        status-data-badge-color="badge-light-danger"
+        icon="media/svg/brand-logos/treva.svg"
+        title="Aviasales App"
+        date="May 10, 2021"
+        budget="$36,400.00"
+        :users="users8"
+      ></KTCard>
+    </div>
+    <div class="col-md-6 col-xl-4">  
+      <KTCard
+        status="Overdue"
+        :progress="10"
+        status-data-badge-color="badge-light-danger"
+        icon="media/svg/brand-logos/treva.svg"
+        title="Aviasales App"
+        date="May 10, 2021"
+        budget="$36,400.00"
+        :users="users8"
+      ></KTCard>
+    </div>
+    <div class="col-xxl-8">
+     <div class="col-md-6 col-xl-4"> 
     </div>
     </div>
   </div>

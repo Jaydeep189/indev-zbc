@@ -71,7 +71,25 @@
         <!--end::Col-->
       </div>
       <!--end::Input group-->
+      <div class="row mb-7">
+        <!--begin::Label-->
+        <label class="col-lg-4 fw-bold text-muted">
+          Email
+          <i
+            class="fas fa-exclamation-circle ms-1 fs-7"
+            data-bs-toggle="tooltip"
+            title="Email must be active"
+          ></i>
+        </label>
+        <!--end::Label-->
 
+        <!--begin::Col-->
+        <div class="col-lg-8 d-flex align-items-center">
+          <span class="fw-bolder fs-6 me-2">google@gmail</span>
+          <span class="badge badge-success">Verified</span>
+        </div>
+        <!--end::Col-->
+      </div>
       <!--begin::Input group-->
       <div class="row mb-7">
         <!--begin::Label-->

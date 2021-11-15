@@ -12,14 +12,6 @@
         <!--begin::Modal header-->
         <div class="modal-header justify-content-end border-0 pb-0">
           <!--begin::Close-->
-          <div
-            class="btn btn-sm btn-icon btn-active-color-primary"
-            data-bs-dismiss="modal"
-          >
-            <span class="svg-icon svg-icon-1">
-              <inline-svg src="media/icons/duotune/arrows/arr061.svg" />
-            </span>
-          </div>
           <!--end::Close-->
         </div>
         <!--end::Modal header-->
@@ -28,11 +20,11 @@
         <div class="modal-body pt-0 pb-15 px-5 px-xl-20">
           <!--begin::Heading-->
           <div class="mb-13 text-center">
-            <h1 class="mb-3">Upgrade a Plan</h1>
+            <h1 class="mb-3">Website Plans</h1>
 
             <div class="text-gray-400 fw-bold fs-5">
               If you need more info, please check
-              <a href="#" class="link-primary fw-bolder">Pricing Guidelines</a>.
+              <a href="#" class="link-primary fw-bolder">Plans Guidelines</a>.
             </div>
           </div>
           <!--end::Heading-->
@@ -54,7 +46,7 @@
                   me-2
                 "
               >
-                Monthly
+                Website
               </button>
               <button
                 @click="current = 'annual'"
@@ -65,7 +57,7 @@
                   py-3
                 "
               >
-                Annual
+                Module
               </button>
             </div>
             <!--end::Nav group-->
@@ -75,7 +67,7 @@
               <!--begin::Col-->
               <div class="col-lg-6 mb-10 mb-lg-0">
                 <!--begin::Tabs-->
-                <div class="nav flex-column">
+                <div v-if= "current === 'month' " class="nav flex-column">
                   <template v-for="(plan, index) in plans" :key="index">
                     <!--begin::Tab link-->
                     <div
@@ -154,13 +146,109 @@
                           Contact Us
                         </button>
                         <template v-else>
-                          <span class="mb-2">$</span>
+                          <span class="mb-2">₹</span>
 
                           <span class="fs-3x fw-bolder">
                             {{
-                              current === "month"
-                                ? plan.priceMonth
-                                : plan.priceAnnual
+                              plan.priceMonth
+                            }}
+                          </span>
+
+                          <span class="fs-7 opacity-50"
+                            >/
+                            <span data-kt-element="period">Mon</span>
+                          </span>
+                        </template>
+                      </div>
+                      <!--end::Price-->
+                    </div>
+                    <!--end::Tab link-->
+                  </template>
+                </div>
+                   <div v-else class="nav flex-column">
+                  <template v-for="(plan, index) in module_plans" :key="index">
+                    <!--begin::Tab link-->
+                    <div
+                      @click="selected = plan.title"
+                      class="
+                        nav-link
+                        btn btn-outline btn-outline-dashed btn-color-dark
+                        d-flex
+                        flex-stack
+                        text-start
+                        p-6
+                      "
+                      :class="[
+                        index !== plans.length - 1 && 'mb-6',
+                        plan.default && 'active',
+                        !plan.custom && 'btn-active btn-active-primary',
+                      ]"
+                      data-bs-toggle="tab"
+                      :data-bs-target="`#kt_upgrade_plan_${index}`"
+                    >
+                      <!--end::Description-->
+                      <div class="d-flex align-items-center me-2">
+                        <!--begin::Radio-->
+                        <div
+                          class="
+                            form-check
+                            form-check-custom
+                            form-check-solid
+                            form-check-success
+                            me-6
+                          "
+                        >
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="plan"
+                            :value="plan.title"
+                            :checked="selected === plan.title"
+                          />
+                        </div>
+                        <!--end::Radio-->
+
+                        <!--begin::Info-->
+                        <div class="flex-grow-1">
+                          <h2
+                            class="
+                              d-flex
+                              align-items-center
+                              fs-2
+                              fw-bolder
+                              flex-wrap
+                            "
+                          >
+                            {{ plan.title }}
+
+                            <span
+                              v-if="plan.label"
+                              class="badge badge-light-success ms-2 fs-7"
+                              >{{ plan.label }}</span
+                            >
+                          </h2>
+                          <div class="fw-bold opacity-50">
+                            {{ plan.subTitle }}
+                          </div>
+                        </div>
+                        <!--end::Info-->
+                      </div>
+                      <!--end::Description-->
+
+                      <!--begin::Price-->
+                      <div class="ms-5">
+                        <button
+                          v-if="plan.custom"
+                          class="btn btn-sm btn-primary"
+                        >
+                          Contact Us
+                        </button>
+                        <template v-else>
+                          <span class="mb-2">₹</span>
+
+                          <span class="fs-3x fw-bolder">
+                            {{
+                              plan.priceMonth
                             }}
                           </span>
 
@@ -194,7 +282,7 @@
                       <!--begin::Heading-->
                       <div class="pb-5">
                         <h2 class="fw-bolder text-dark">
-                          What’s in Startup Plan?
+                          Basic Plan - I
                         </h2>
 
                         <div class="text-gray-400 fw-bold">
@@ -294,11 +382,10 @@ export default defineComponent({
 
     const plans = [
       {
-        title: "Startup",
-        subTitle: "Best for startups",
-        description: "Optimal for 10+ team size and new startup",
-        priceMonth: "39",
-        priceAnnual: "399",
+        title: "Basic Plan - I",
+        subTitle: "Single Page Website",
+        description: "Optimal Portfolio and informative website",
+        priceMonth: "70",
         default: true,
         custom: false,
         features: [
@@ -334,11 +421,10 @@ export default defineComponent({
       },
 
       {
-        title: "Advanced",
-        subTitle: "Best for 100+ team size",
+        title: "Basic Plan - II",
+        subTitle: "Best for Bussinesses",
         description: "Optimal for 100+ team size and grown company",
-        priceMonth: "339",
-        priceAnnual: "3399",
+        priceMonth: "120",
         default: false,
         custom: false,
         features: [
@@ -374,11 +460,127 @@ export default defineComponent({
       },
 
       {
-        title: "Enterprise",
+        title: "Blogging",
         subTitle: "Best value for 1000+ team",
         description: "Optimal for 1000+ team and enterpise",
-        priceMonth: "999",
-        priceAnnual: "9999",
+        priceMonth: "170",
+        label: "Most popular",
+        default: false,
+        custom: false,
+        features: [
+          {
+            title: "Up to 10 Active Users",
+            supported: true,
+          },
+          {
+            title: "Up to 30 Project Integrations",
+            supported: true,
+          },
+          {
+            title: "Analytics Module",
+            supported: true,
+          },
+          {
+            title: "Finance Module",
+            supported: true,
+          },
+          {
+            title: "Accounting Module",
+            supported: true,
+          },
+          {
+            title: "Network Platform",
+            supported: true,
+          },
+          {
+            title: "Unlimited Cloud Space",
+            supported: true,
+          },
+        ],
+      },
+      {
+        title: "Basic Ecommerce",
+        subTitle: "Best value for 1000+ team",
+        description: "Optimal for 1000+ team and enterpise",
+        priceMonth: "220",
+        label: "Most popular",
+        default: false,
+        custom: false,
+        features: [
+          {
+            title: "Up to 10 Active Users",
+            supported: true,
+          },
+          {
+            title: "Up to 30 Project Integrations",
+            supported: true,
+          },
+          {
+            title: "Analytics Module",
+            supported: true,
+          },
+          {
+            title: "Finance Module",
+            supported: true,
+          },
+          {
+            title: "Accounting Module",
+            supported: true,
+          },
+          {
+            title: "Network Platform",
+            supported: true,
+          },
+          {
+            title: "Unlimited Cloud Space",
+            supported: true,
+          },
+        ],
+      },
+      {
+        title: "Advance Ecommerce",
+        subTitle: "Best value for 1000+ team",
+        description: "Optimal for 1000+ team and enterpise",
+        priceMonth: "450",
+        label: "Most popular",
+        default: false,
+        custom: false,
+        features: [
+          {
+            title: "Up to 10 Active Users",
+            supported: true,
+          },
+          {
+            title: "Up to 30 Project Integrations",
+            supported: true,
+          },
+          {
+            title: "Analytics Module",
+            supported: true,
+          },
+          {
+            title: "Finance Module",
+            supported: true,
+          },
+          {
+            title: "Accounting Module",
+            supported: true,
+          },
+          {
+            title: "Network Platform",
+            supported: true,
+          },
+          {
+            title: "Unlimited Cloud Space",
+            supported: true,
+          },
+        ],
+      },
+      {
+        title: "Ultimate",
+        subTitle: "Best value for 1000+ team",
+        description: "Optimal for 1000+ team and enterpise",
+        priceMonth: "600",
         label: "Most popular",
         default: false,
         custom: false,
@@ -420,10 +622,138 @@ export default defineComponent({
         default: false,
         custom: true,
       },
+      
+    ];
+     const module_plans = [
+      {
+        title: "Extra Email",
+        subTitle: "Single Page Website",
+        description: "Optimal Portfolio and informative website",
+        priceMonth: "50",
+        default: true,
+        custom: false,
+        features: [
+          {
+            title: "Up to 10 Active Users",
+            supported: true,
+          },
+          {
+            title: "Up to 30 Project Integrations",
+            supported: true,
+          },
+          {
+            title: "Analytics Module",
+            supported: true,
+          },
+          {
+            title: "Finance Module",
+            supported: false,
+          },
+          {
+            title: "Accounting Module",
+            supported: false,
+          },
+          {
+            title: "Network Platform",
+            supported: false,
+          },
+          {
+            title: "Unlimited Cloud Space",
+            supported: false,
+          },
+        ],
+      },
+
+      {
+        title: "Change Domain",
+        subTitle: "Best for Bussinesses",
+        description: "Optimal for 100+ team size and grown company",
+        priceMonth: "100",
+        default: false,
+        custom: false,
+        features: [
+          {
+            title: "Up to 10 Active Users",
+            supported: true,
+          },
+          {
+            title: "Up to 30 Project Integrations",
+            supported: true,
+          },
+          {
+            title: "Analytics Module",
+            supported: true,
+          },
+          {
+            title: "Finance Module",
+            supported: true,
+          },
+          {
+            title: "Accounting Module",
+            supported: true,
+          },
+          {
+            title: "Network Platform",
+            supported: false,
+          },
+          {
+            title: "Unlimited Cloud Space",
+            supported: false,
+          },
+        ],
+      },
+
+      {
+        title: "Product Limit",
+        subTitle: "Best value for 1000+ team",
+        description: "Optimal for 1000+ team and enterpise",
+        priceMonth: "100",
+        label: "Most popular",
+        default: false,
+        custom: false,
+        features: [
+          {
+            title: "Up to 10 Active Users",
+            supported: true,
+          },
+          {
+            title: "Up to 30 Project Integrations",
+            supported: true,
+          },
+          {
+            title: "Analytics Module",
+            supported: true,
+          },
+          {
+            title: "Finance Module",
+            supported: true,
+          },
+          {
+            title: "Accounting Module",
+            supported: true,
+          },
+          {
+            title: "Network Platform",
+            supported: true,
+          },
+          {
+            title: "Unlimited Cloud Space",
+            supported: true,
+          },
+        ],
+      },
+      {
+        title: "Custom",
+        subTitle: "Requet a custom license",
+        default: false,
+        custom: true,
+      },
+      
     ];
 
     return {
       plans,
+      module_plans,
       current,
       selected,
     };

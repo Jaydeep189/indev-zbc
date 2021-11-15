@@ -34,8 +34,8 @@
 
             <!--begin::Title-->
             <div>
-              <div class="fs-5 text-dark fw-bolder lh-1">$50K</div>
-              <div class="fs-7 text-gray-600 fw-bold">Sales</div>
+              <div class="fs-5 text-dark fw-bolder lh-1">5</div>
+              <div class="fs-7 text-gray-600 fw-bold"> Web Orders</div>
             </div>
             <!--end::Title-->
           </div>
@@ -57,8 +57,8 @@
 
             <!--begin::Title-->
             <div>
-              <div class="fs-5 text-dark fw-bolder lh-1">$4,5K</div>
-              <div class="fs-7 text-gray-600 fw-bold">Revenue</div>
+              <div class="fs-5 text-dark fw-bolder lh-1">4</div>
+              <div class="fs-7 text-gray-600 fw-bold"> Module Orders</div>
             </div>
             <!--end::Title-->
           </div>
@@ -80,8 +80,8 @@
 
             <!--begin::Title-->
             <div>
-              <div class="fs-5 text-dark fw-bolder lh-1">40</div>
-              <div class="fs-7 text-gray-600 fw-bold">Tasks</div>
+              <div class="fs-5 text-dark fw-bolder lh-1">4</div>
+              <div class="fs-7 text-gray-600 fw-bold">Requested Edits</div>
             </div>
             <!--end::Title-->
           </div>
@@ -103,8 +103,8 @@
 
             <!--begin::Title-->
             <div>
-              <div class="fs-5 text-dark fw-bolder lh-1">$5.8M</div>
-              <div class="fs-7 text-gray-600 fw-bold">Sales</div>
+              <div class="fs-5 text-dark fw-bolder lh-1">5</div>
+              <div class="fs-7 text-gray-600 fw-bold">Completed Edits</div>
             </div>
             <!--end::Title-->
           </div>

@@ -1679,37 +1679,12 @@
             </div>
           </div>
         </div>
-
-        <div class="flex-column-auto pt-10 px-5" id="kt_aside_secondary_footer">
-          <a
-            href="https://preview.keenthemes.com/metronic8/vue/docs/#/doc-overview"
-            class="
-              btn
-              btn-bg-light
-              btn-color-gray-600
-              btn-flex
-              btn-active-color-primary
-              flex-center
-              w-100
-            "
-            data-bs-toggle="tooltip"
-            data-bs-custom-class="tooltip-dark"
-            data-bs-trigger="hover"
-            data-bs-offset="0,5"
-            data-bs-dismiss-="click"
-          >
-            <span class="btn-label"> Docs & Components </span>
-            <span class="svg-icon btn-icon svg-icon-4 ms-2">
-              <inline-svg src="media/icons/duotune/general/gen005.svg" />
-            </span>
-          </a>
-        </div>
       </div>
     </div>
   </div>
 
   <button
-    v-if="asideSecondaryDisplay && minimizationEnabled"
+    v-if="asideSecondaryDisplay && minimizationEnabled && 1===2"
     :class="{ active: minimizedAsideSecondary }"
     class="
       btn btn-sm btn-icon btn-white btn-active-primary
@@ -1733,6 +1708,10 @@
   </button>
 </template>
 
+<style lang="scss">
+</style>
+
+
 <script lang="ts">
 import { defineComponent } from "vue";
 import KTMenu from "@/layout/aside/Menu.vue";
@@ -1745,6 +1724,8 @@ import {
   asideSecondaryDisplay,
   minimizationEnabled,
 } from "@/core/helpers/config";
+
+
 
 export default defineComponent({
   name: "kt-aside-secondary",

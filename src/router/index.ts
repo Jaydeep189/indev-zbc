@@ -72,25 +72,25 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import("@/views/crafted/pages/wizards/Vertical.vue"),
       },
       {
-        path: "/crafted/account",
+        path: "/account",
         name: "account",
-        component: () => import("@/views/crafted/account/Account.vue"),
+        component: () => import("@/views/account/Account.vue"),
         children: [
           {
             path: "overview",
             name: "account-overview",
-            component: () => import("@/views/crafted/account/Overview.vue"),
+            component: () => import("@/views/account/Overview.vue"),
           },
           {
             path: "settings",
             name: "account-settings",
-            component: () => import("@/views/crafted/account/Settings.vue"),
+            component: () => import("@/views/account/Settings.vue"),
           },
           {
             path: "orders",
             name: "website-orders",
             component: () =>
-              import("@/views/crafted/account/Orders.vue"),
+              import("@/views/account/Orders.vue"),
           },
         ],
       },
@@ -236,9 +236,9 @@ const routes: Array<RouteRecordRaw> = [
         component : () => import("@/views/Request.vue")
       },
       {
-        path: "/profile-main",
-        name: "profile-main",
-        component : () => import("@/views/ProfileMain.vue")
+        path: "/about",
+        name: "about",
+        component : () => import("@/views/About.vue")
       },
       {
         path: "/billing",

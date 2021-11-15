@@ -57,21 +57,6 @@
                     <inline-svg src="media/icons/duotune/general/gen026.svg" />
                   </span>
                 </a>
-
-                <a
-                  href="#"
-                  class="
-                    btn btn-sm btn-light-success
-                    fw-bolder
-                    ms-2
-                    fs-8
-                    py-1
-                    px-3
-                  "
-                  data-bs-toggle="modal"
-                  data-bs-target="#kt_modal_upgrade_plan"
-                  >Upgrade to Pro</a
-                >
               </div>
               <!--end::Name-->
 
@@ -266,7 +251,7 @@
           <!--begin::Nav item-->
           <li class="nav-item">
             <router-link
-              to="/crafted/account/overview"
+              to="/account/overview"
               class="nav-link text-active-primary me-6"
               active-class="active"
             >
@@ -275,7 +260,7 @@
           </li>
           <li class="nav-item">
             <router-link
-              to="/crafted/account/orders"
+              to="/account/orders"
               class="nav-link text-active-primary me-6"
               active-class="active"
             >
@@ -286,7 +271,7 @@
           <!--begin::Nav item-->
           <li class="nav-item">
             <router-link
-              to="/crafted/account/settings"
+              to="/account/settings"
               class="nav-link text-active-primary me-6"
               active-class="active"
             >
